@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -14,24 +15,10 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
-	animation: bg-animation 10s infinite alternate;
-	background-size: 300%;
 	font-family: 'Open Sans', sans-serif;
 	color: white;
 	font-size: 1.1em;
 	font-weight: 200;
-}
-
-
-@keyframes bg-animation {
-	0% {
-		background-position: left;
-	}
-
-	100% {
-		background-position: right;
-	}
 }
 
 .card {
@@ -50,9 +37,10 @@ body {
 	margin: 0.25em 0;
 }
 
-.city {
-	margin: 0.5em 0;
+.city-name {
+	margin: 0.1em 0;
 	font-weight: 400;
+	font-size: 1.3em;
 }
 
 .search {
@@ -99,5 +87,101 @@ body {
 }
 
 .weather {
-	padding: 0.75em;
+	padding: 1.5em;
+}
+
+.weather-app {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.nameApp {
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 1.5em;
+	margin-bottom: 0.75em;
+	background-color: #f2f3f4;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 1px;
+}
+
+.humidity,
+.wind,
+.weather-description {
+	padding: 0.25em 0;
+}
+
+
+.weather-desc-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-right: 5em;
+}
+
+.wrapper {
+	background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	animation: bg-animation 10s infinite alternate;
+	background-size: 300%;
+}
+
+
+#date,
+#weekday {
+	font-size: 0.75em;
+}
+
+/* 
+.basic-description {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+} */
+
+
+
+/* 
+.bg-basic.bg-cold {
+	background: linear-gradient(to right, #514A9D, #24C6DC);
+	animation: bg-animation 10s infinite alternate;
+	background-size: 300%;
+}
+
+
+.bg-hot {
+	background: -webkit-linear-gradient(to right, #F9D423, #FF4E50, );
+	background: linear-gradient(to right, #F9D423, #FF4E50);
+	animation: bg-animation 10s infinite alternate;
+	background-size: 300%;
+
+}
+
+
+.bg-dangerous-hot {
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	animation: bg-animation 10s infinite alternate;
+	background-size: 300%;
+} */
+
+@keyframes bg-animation {
+	0% {
+		background-position: left;
+	}
+
+	100% {
+		background-position: right;
+	}
+}
+
+.weather-char {
+	display: flex;
+	justify-content: space-between;
 }
