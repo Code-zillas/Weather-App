@@ -8,6 +8,10 @@ const currentDate = document.getElementById("date");
 const weekday = document.getElementById("weekday");
 const sunrise = document.getElementById("sunrise");
 const sunset = document.getElementById("sunset");
+const imgHumidity = document.getElementById("img-humidity")
+const imgWind = document.getElementById("img-wind")
+const imgSunrise = document.getElementById("img-sunrise")
+const imgSunset = document.getElementById("img-sunset")
 
 
 btn.addEventListener("click", () => {
@@ -18,31 +22,48 @@ btn.addEventListener("click", () => {
 		.then((response) => response.json())
 		.then((data) => {
 			console.log(data)
-			let iconName = data.weather[0].icon
 			cityName.innerText = data.name;
+
 			temp.innerText = Math.floor(data.main.temp) + " °C";
 
-			//Trying to toggle css classes and change backgrounds depends of temperature. Doesn't work for now.
-
-			// if (data.main.temp <= 20) {
-			// 	let bg = document.getElementById("bg-basic")
-			// 	bg.classList.toggle("bg-cold")
-			// } else if (data.main.temp >= 21 && data.main.temp <= 35) {
-			// 	document.body.classList.toggle("bg-hot")
-			// } else if (data.main.temp > 35) {
-			// 	document.body.classList.toggle("bg-dangerous-hot")
-			// }
-
+			let iconName = data.weather[0].icon
 			icon.src = "http://openweathermap.org/img/wn/" + iconName + "@2x.png"
-			hum.innerText = "Humidity: " + data.main.humidity + "%";
-			wSpeed.innerText = "Wind: " + data.wind.speed + " m/s";
-			// sunrise.innerText = new Date(data.sys.sunrise * 1000)
+
+			hum.innerText = data.main.humidity + " %"
+			imgHumidity.src = "/Images/humidity.png"
+			humidity.parentNode.insertBefore(imgHumidity, humidity)
+			imgHumidity.style.width = '1.35em'
+			imgHumidity.style.height = '1.35em'
+			imgHumidity.style.margin = '0.5em'
+
+			wSpeed.innerText = data.wind.speed + " m/s";
+			imgWind.src = "/Images/wind.png"
+			wSpeed.parentNode.insertBefore(imgWind, wSpeed)
+			imgWind.style.width = '1.35em'
+			imgWind.style.height = '1.35em'
+			imgWind.style.margin = '0.5em'
+
+			let dSunrise = new Date(data.sys.sunrise * 1000)
+			sunrise.innerText = dSunrise.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+			imgSunrise.src = "/Images/sunrise.png"
+			sunrise.parentNode.insertBefore(imgSunrise, sunrise)
+			imgSunrise.style.width = '1.35em'
+			imgSunrise.style.height = '1.35em'
+			imgSunrise.style.margin = '0.5em'
+
+			let dSunset = new Date(data.sys.sunset * 1000)
+			sunset.innerText = dSunset.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+			imgSunset.src = "/Images/sunset.png"
+			sunset.parentNode.insertBefore(imgSunset, sunset)
+			imgSunset.style.width = '1.35em'
+			imgSunset.style.height = '1.35em'
+			imgSunset.style.margin = '0.5em'
 		});
 
 	let today = new Date()
 	let dayOfWeekName = today.toLocaleString('default', { weekday: 'long' })
 	let monthName = today.toLocaleString('default', { month: 'long' })
-	let date = `${dayOfWeekName},  ${monthName}  ${today.getDate()}, ${today.getFullYear()}`
+	let date = `${dayOfWeekName}, ${monthName} ${today.getDate()}, ${today.getFullYear()}`
 	currentDate.innerHTML = date
 });
 

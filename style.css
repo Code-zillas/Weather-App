@@ -87,7 +87,7 @@ body {
 }
 
 .weather {
-	padding: 1.5em;
+	padding: 1.5em 1.5em 0 1.5em;
 }
 
 .weather-app {
@@ -111,8 +111,10 @@ body {
 
 .humidity,
 .wind,
-.weather-description {
-	padding: 0.25em 0;
+.weather-description,
+#sunset,
+#sunrise {
+	padding: 0.5em 0;
 }
 
 
@@ -120,7 +122,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-right: 5em;
+	padding-right: 5.2em;
 }
 
 .wrapper {
@@ -128,7 +130,7 @@ body {
 	/* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	animation: bg-animation 10s infinite alternate;
+	animation: bg-animation 15s infinite alternate;
 	background-size: 300%;
 }
 
@@ -137,39 +139,6 @@ body {
 #weekday {
 	font-size: 0.75em;
 }
-
-/* 
-.basic-description {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-} */
-
-
-
-/* 
-.bg-basic.bg-cold {
-	background: linear-gradient(to right, #514A9D, #24C6DC);
-	animation: bg-animation 10s infinite alternate;
-	background-size: 300%;
-}
-
-
-.bg-hot {
-	background: -webkit-linear-gradient(to right, #F9D423, #FF4E50, );
-	background: linear-gradient(to right, #F9D423, #FF4E50);
-	animation: bg-animation 10s infinite alternate;
-	background-size: 300%;
-
-}
-
-
-.bg-dangerous-hot {
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
-	animation: bg-animation 10s infinite alternate;
-	background-size: 300%;
-} */
 
 @keyframes bg-animation {
 	0% {
@@ -182,6 +151,18 @@ body {
 }
 
 .weather-char {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-content: center;
+	width: 100%;
+}
+
+#sunrise-char,
+#sunset-char,
+#hum-char,
+#wind-char {
 	display: flex;
-	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5em;
+	margin-right: 1em;
 }
