@@ -40,7 +40,7 @@ body {
 .city-name {
 	margin: 0.1em 0;
 	font-weight: 400;
-	font-size: 1.3em;
+	font-size: 1.5em;
 }
 
 .search {
@@ -123,6 +123,7 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	padding-right: 5.2em;
+	margin-bottom: 0.5em
 }
 
 .wrapper {
@@ -130,7 +131,7 @@ body {
 	/* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	animation: bg-animation 15s infinite alternate;
+	animation: bg-animation 30s infinite alternate;
 	background-size: 300%;
 }
 
@@ -165,4 +166,16 @@ body {
 	align-items: center;
 	margin-bottom: 0.5em;
 	margin-right: 1em;
+}
+
+#img-humidity,
+#img-wind,
+#img-sunset,
+#img-sunrise {
+	width: 1.35em;
+	height: 1.35em;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	margin: 0.5em;
 }
